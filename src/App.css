@@ -68,10 +68,10 @@ scale: 1.1;
 .visible{
   overflow: hidden;
   width:330px;
-  height:450px;
+  height:500px;
   background-color:rgba(20, 20, 229, 0.904);
   position: absolute;
-  top: 53%;
+  top: 56%;
   left: 50%;
   transform: translate(-50%,-50%);
   border-radius: 20px;
