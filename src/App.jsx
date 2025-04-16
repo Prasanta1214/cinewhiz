@@ -4,6 +4,7 @@ import "./App.css"
 export default function App() {
 
   const [count, setCount] =useState(0)
+  const[cssName, setCssName] = useState('selected')
   const [movie, setMovie] =useState([
     {
       name:'Aachari-Baa',
@@ -77,6 +78,13 @@ export default function App() {
     },
   ])
 
+  const [selected ,setSelected] =useState([])
+
+
+  const watchlistbtn=()=>{
+    setCssName('visible')
+  }
+
 
   const addToWatchList =(index)=>{
     if(movie[index].watchlist=='/save (1).png'){
@@ -87,6 +95,7 @@ export default function App() {
       setCount(count+1)
       movie[index].watchlist='/save (1).png'
       setMovie([...movie])
+      setSelected([...selected,movie[index]])
     }
    
   }
@@ -96,14 +105,14 @@ export default function App() {
     <div className='main'>
       <div className='header'>
         <img src="/logo.jpg" width="100px" />
-        <button id='watch-list'>Watchlist &nbsp;{count}</button>
+        <button id='watch-list' onClick={watchlistbtn}>Watchlist &nbsp;{count}</button>
       </div>
       <hr />
       <br />
       <div className='body'>
       
         {movie.map((item,index)=>
-        <div id='movie-card'>
+        <div id='movie-card'key={index}>
         <img src={item.image} alt=""  height='150' />
         <div id='para'>
         <h3>{item.name}</h3>
@@ -111,7 +120,12 @@ export default function App() {
         </div>
        </div>
         )}
-       
+      </div>
+      <div className={cssName}>
+        <img src="/remove.png"
+         width="40" 
+         id='remove-btn'
+         onClick={()=>{setCssName('selected')}}/>
       </div>
 
 
