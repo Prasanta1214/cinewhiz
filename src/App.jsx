@@ -83,6 +83,7 @@ export default function App() {
 
   const watchlistbtn=()=>{
     setCssName('visible')
+   
   }
 
 
@@ -91,6 +92,13 @@ export default function App() {
       setCount(count-1)
       movie[index].watchlist='/unsave.png'
       setMovie([...movie])
+
+      for(let i=0; i<selected.length;i++){
+        if(selected[i].name== movie[index].name){
+          selected.splice(i,1)
+          setSelected([...selected])
+        }
+      }
     }else{
       setCount(count+1)
       movie[index].watchlist='/save (1).png'
@@ -122,10 +130,16 @@ export default function App() {
         )}
       </div>
       <div className={cssName}>
-        <img src="/remove.png"
+        <h1 id='remove-btn'><img src="/remove.png"
          width="40" 
-         id='remove-btn'
-         onClick={()=>{setCssName('selected')}}/>
+         
+         onClick={()=>{setCssName('selected')}}/></h1>
+         {selected.map((item,index)=>
+          <div id='add-movie' key={index}>
+            <img src={item.image} alt="" width="30" />
+            <h3>{item.name}</h3>
+          </div>
+         )}
       </div>
 
 

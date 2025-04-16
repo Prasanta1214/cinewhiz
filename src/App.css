@@ -43,7 +43,7 @@
 #movie-card{
   height: 180px;
   width: 155px;
- border-radius: 10px;
+  border-radius: 10px;
   display: flex;
   padding-top: 5px;
   align-items: center;
@@ -69,15 +69,36 @@ scale: 1.1;
   overflow: hidden;
   width:330px;
   height:500px;
-  background-color:rgba(20, 20, 229, 0.904);
+  background-color:rgba(225, 225, 234, 0.966);
   position: absolute;
   top: 56%;
   left: 50%;
   transform: translate(-50%,-50%);
   border-radius: 20px;
-  padding: 5px 0 0 5px;
-
+  padding: 5px ;
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  align-items: end;
+  overflow: auto;
+  scrollbar-width: none; 
+  box-shadow: 3px 3px 5px rgba(105, 105, 237, 0.675) ,4px 4px 10px rgba(110, 111, 115, 0.683);
+}
+.visible::-webkit-scrollbar {
+  display: none;               
 }
 #remove-btn{
   cursor: pointer;
+ position: fixed;
+ z-index: 1000;
+  
+}
+#add-movie{
+  background-color: white;
+  width: 100%;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+  border-radius: 5px;
 }
